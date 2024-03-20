@@ -1,14 +1,14 @@
 // integratelyWebhookLibrary.js
 
 var integratelyWebhookLibrary = (function () {
-    
+
     var webhookURL;
 
     // Private function to get li_fat_id cookie
     function getCookie(name) {
         var value = "; " + document.cookie;
         var parts = value.split("; " + name + "=");
-        if (parts.length === 2) 
+        if (parts.length === 2)
             return parts.pop().split(";").shift();
     }
 
@@ -24,16 +24,16 @@ var integratelyWebhookLibrary = (function () {
     // Public function to send event to Integrately webhook
     function sendEventIGToWebhook(eventName, eventPayload) {
         var li_fat_id = getCookie('li_fat_id');
-
-        //if (li_fat_id) {
+        
+        if (li_fat_id) {
             var eventData = { li_fat_id: li_fat_id };
             if (eventPayload) {
                 eventData.event = eventName;
-                eventData.payload = eventPayload;
+                eventData = { ...eventData, ...eventPayload };
+
             } else {
                 eventData.event = eventName;
             }
-
             var xhr = new XMLHttpRequest();
             xhr.open("POST", webhookURL, true);
             xhr.setRequestHeader("Content-Type", "application/json");
@@ -47,9 +47,9 @@ var integratelyWebhookLibrary = (function () {
             };
             var jsonData = JSON.stringify(eventData);
             xhr.send(jsonData);
-       // } else {
-        //    console.log("li_fat_id cookie not found. Skipping AJAX call.");
-       // }
+        } else {
+            console.log("li_fat_id cookie not found. Skipping AJAX call.");
+        }
     }
 
     // Expose public methods
