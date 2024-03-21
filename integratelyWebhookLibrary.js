@@ -21,19 +21,22 @@ var ig = (function () {
         }
     }
 
-    // Public function to send event to Integrately webhook
-    function sendEvent(eventName, eventPayload) {
+    function sendEvent(eventName, eventPayload, isForLinkedInCookie) {
         var li_fat_id = getCookie('li_fat_id');
+        var eventData = {};
 
         if (li_fat_id) {
-            var eventData = { li_fat_id: li_fat_id };
-            if (eventPayload) {
-                eventData.event = eventName;
-                eventData = { ...eventData, ...eventPayload };
+            eventData.li_fat_id = li_fat_id;
+        }
 
-            } else {
-                eventData.event = eventName;
-            }
+        if (eventPayload) {
+            eventData.event = eventName;
+            Object.assign(eventData, eventPayload);
+        } else {
+            eventData.event = eventName;
+        }
+
+        if (!isForLinkedInCookie || (isForLinkedInCookie && li_fat_id)) {
             var xhr = new XMLHttpRequest();
             xhr.open("POST", webhookURL, true);
             xhr.setRequestHeader("Content-Type", "application/json");
@@ -48,7 +51,7 @@ var ig = (function () {
             var jsonData = JSON.stringify(eventData);
             xhr.send(jsonData);
         } else {
-            console.log("li_fat_id cookie not found. Skipping AJAX call.");
+            console.log("Skipping AJAX call because li_fat_id is not present and isForLinkedInCookie is true.");
         }
     }
 
