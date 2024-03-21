@@ -1,4 +1,4 @@
-# Integrately-Public-Analytics-via-Webhook
+# Integrately Webhook Sender Library
 
 ## Overview
 
@@ -8,10 +8,10 @@ This is a simple JavaScript library that allows you to send data via webhook to 
 
 To send an event with data using this library, you can use the following syntax:
 
-`
+```javascript
 ig.init("some_webhook_id_or_url");
-ig.sendEvent("onclick", { key:  "value" });
-`
+ig.sendEvent("onclick", { key: "value" });
+
 
 ## Getting Started
 
@@ -21,7 +21,7 @@ To include this library in your project via [jsDelivr](https://cdn.jsdelivr.net/
 
 htmlCopy code
 
-`<script src="https://cdn.jsdelivr.net/gh/CompanyHub-IG/Integrately-Public-Analytics-via-Webhook@latest/integratelyWebhookLibrary.js"></script>` 
+<script src="https://cdn.jsdelivr.net/gh/CompanyHub-IG/Integrately-Public-Analytics-via-Webhook@latest/integratelyWebhookLibrary.js"></script> 
 
 
 ### Inject via Google Tag Manager
@@ -35,7 +35,7 @@ You can also inject this library into your website using Google Tag Manager. Fol
 
 htmlCopy code
 
-`<script>
+<script>
 (function() {
     var script = document.createElement('script');
     script.type = 'text/javascript';
@@ -46,19 +46,21 @@ htmlCopy code
     };
     document.head.appendChild(script);
 })();
-</script>` 
+</script>
 
 
 5.  Set the trigger to fire on all pages or specific pages where you want to use this library.
 6.  Save the tag and publish your changes.
 7. Include following code in your website to call the functions inside library.
-`<script>
+
+<script>
 // Function to initialize your script once it's loaded
 function  initializeScript() {
-ig.init("some_webhook_id_or_url");
-ig.sendEvent("onclick", { key:  "value" });
+	ig.init("some_webhook_id_or_url");
+	ig.sendEvent("onclick", { key:  "value" });
 }
-</script>`
+</script>
+
 Now, the Integrately Webhook Sender Library will be included in your website via Google Tag Manager.
 
 ## License
