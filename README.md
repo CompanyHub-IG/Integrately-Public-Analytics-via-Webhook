@@ -70,7 +70,7 @@ You can inject this library into your website using Google Tag Manager. Follow t
 // Function to initialize your script once it's loaded
 function initializeScript() {
     ig.init("some_webhook_id_or_url");
-    ig.sendEvent("eventName", { someKey: "someValue" }, false);
+    ig.sendEvent("eventName", { someKey: "someValue" }, true);
 }
 </script>
 ```
