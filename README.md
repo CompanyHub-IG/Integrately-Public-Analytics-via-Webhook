@@ -33,6 +33,7 @@ The `ig.sendEvent()` function is used to transmit event data to Integrately. It 
 1. **Event Name**: The type of event being sent, e.g., `"onclick"`.
 2. **Event Payload**: A JSON object containing relevant data for the event, such as LinkedIn conversion ID or other event-related information.
 3. **isForCookies:** Determines whether to check for the presence of a cookie and if the cookie is present it will check for LinkedIn or Facebook cookies before sending the event. It can be either true or false. If set to true, the event message will only be sent if the LinkedIn or Facebook cookies are present; otherwise, it will be sent regardless.
+   
 **Example:** For LinkedIn cookie it will check for 'li_fat_id', and for Facebook it will check for '_fbp'.
 
 ## Getting Started
