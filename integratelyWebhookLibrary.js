@@ -1,5 +1,5 @@
 // integratelyWebhookLibrary.js
-//chidanand code 
+
 var ig = (function () {
   var webhookURL;
 
@@ -35,13 +35,13 @@ var ig = (function () {
     }
     if (fbp) {
       eventData._fbp = fbp;
-      if(fbc){
-        eventData._fbc = fbc;
-      }
       if (c_user) {
         eventData.c_user = c_user;
       }
     }
+    if(fbc){
+        eventData._fbc = fbc;
+      }
 
     // Add event name and payload
     eventData.event = eventName;
