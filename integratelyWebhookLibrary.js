@@ -26,6 +26,7 @@ var ig = (function () {
     var li_fat_id = getCookie("li_fat_id");
     var fbp = getCookie("_fbp");
     var c_user = getCookie("c_user");
+    var fbc = getCookie("_fbc");
     var eventData = {};
 
     // Add cookies to eventData if present
@@ -34,6 +35,9 @@ var ig = (function () {
     }
     if (fbp) {
       eventData._fbp = fbp;
+      if(fbc){
+        eventData._fbc = fbc;
+      }
       if (c_user) {
         eventData.c_user = c_user;
       }
