@@ -73,17 +73,17 @@ someKey: "someValue"
 ## Calling functions in the Code  
 To proceed with using the library, you must  
 1) Initialize code using `ig.init()` function.  
-2) Send events using `ig.sendEvent()` function.  
-### 1) Initialization  
-  
-Now, to start sending event data to Integrately, you must initialize the webhook URL or ID using the `ig.init()` function given in the above code. So, you must replace `"some_webhook_id_or_url"` with the actual webhook ID or URL obtained from Integrately.  
-  
-#### How to Obtain the Webhook URL or ID  
+2) Send events using `ig.sendEvent()` function.
+
+#### Before Initializing the code you must obtain the Webhook URL or ID from Integrately:
   
 1. Visit [Integrately]([https://integrately.com](https://integrately.com/)).  
 2. Select the "Webhook" app and choose the trigger operation under "Webhook / API Integration."  
 3. Select the action to be performed when the trigger occurs.  
 4. Click "Go," then on the "Connect Accounts" page, copy the webhook URL. Paste it into the `ig.init()` function. You can copy the full URL or just the ID at the end of the URL.  
+### 1) Initialization  
+  
+Now, to start sending event data to Integrately, you must initialize the webhook URL or ID using the `ig.init()` function given in the above code. So, you must replace `"some_webhook_id_or_url"` with the actual webhook ID or URL obtained from Integrately.  
   
 ### 2) Sending Events  
   
